@@ -112,11 +112,9 @@
     .card-work {
       grid-column: 1;
       grid-row: 2;
+      min-width: 252px;
       min-height: 95px;
       height: auto;
-      min-width: 252px;
-      padding: 11px 23px;
-      padding-right: calc(126px + 23px + 0.5rem);
     }
 
     .card-projects {
@@ -228,39 +226,7 @@
       object-position: right bottom;
     }
 
-    /* Work Experience – work-card (replacement card) */
-    .card-work {
-      padding: 0;
-      background: transparent;
-      box-shadow: none;
-      border: none;
-      min-height: 0;
-      height: auto;
-    }
-
-    .card-work:hover {
-      box-shadow: none;
-      transform: none;
-    }
-
-    .work-card {
-      position: relative;
-      display: block;
-      min-width: 288px;
-      border-radius: 8px;
-      background-color: #fafafa;
-      overflow: hidden;
-      font-family: var(--sans);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
-    }
-
-    .card-work:hover .work-card {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-
+    /* Work Experience card – content and image */
     .work-card__content {
       display: flex;
       flex-direction: column;
@@ -301,7 +267,8 @@
       top: 0;
       right: 0;
       width: 128px;
-      height: auto;
+      height: 46px;
+      object-fit: contain;
       display: block;
       pointer-events: none;
     }
@@ -470,23 +437,21 @@
       </a>
 
       <a href="#work-experience" class="card card-work" id="work-experience">
-        <div class="work-card">
-          <div class="work-card__content">
-            <div class="work-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-              </svg>
-            </div>
-            <p class="work-card__title">Work Experience</p>
-            <p class="work-card__body">My career as a Service Designer</p>
+        <div class="work-card__content">
+          <div class="work-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
           </div>
-          <img
-            class="work-card__image"
-            src="https://raw.githubusercontent.com/tomasgd9-beep/TomasPortfolio/main/BottomBox.png"
-            alt="Work experience illustration"
-          />
+          <p class="work-card__title">Work Experience</p>
+          <p class="work-card__body">My career as a Service Designer</p>
         </div>
+        <img
+          class="work-card__image"
+          src="https://raw.githubusercontent.com/tomasgd9-beep/TomasPortfolio/main/BottomBox.png"
+          alt="Work experience illustration"
+        />
       </a>
 
       <a href="#projects" class="card card-projects">
