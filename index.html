@@ -140,11 +140,12 @@
     }
 
     .card {
+      --card-padding: 1.75rem;
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
-      padding: 1.75rem;
+      padding: var(--card-padding);
       text-decoration: none;
       color: inherit;
       display: block;
@@ -175,7 +176,7 @@
       font-weight: 400;
     }
 
-    /* About & Work Experience cards – illustration */
+    /* About & Work Experience cards – illustration (flush to card edges, cropped) */
     .card-about,
     .card-work {
       position: relative;
@@ -184,26 +185,27 @@
 
     .card-illustration {
       position: absolute;
-      right: -1.75rem;
-      max-width: 220px;
-      max-height: 190px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
+      width: 260px;
+      height: 220px;
+      max-width: none;
+      max-height: none;
+      object-fit: cover;
     }
 
-    /* Top Frame: bottom-right of About box */
+    /* Top Frame: bottom-right of About box, cropped by right and bottom edges */
     .card-about .card-illustration {
       top: auto;
-      bottom: -1.75rem;
-      right: -1.75rem;
+      right: calc(-1 * var(--card-padding));
+      bottom: calc(-1 * var(--card-padding));
+      object-position: right bottom;
     }
 
-    /* Bottom Frame: top-right of Work Experience box */
+    /* Bottom Frame: top-right of Work Experience box, cropped by right and top edges */
     .card-work .card-illustration {
-      top: -1.75rem;
+      top: calc(-1 * var(--card-padding));
+      right: calc(-1 * var(--card-padding));
       bottom: auto;
-      right: -1.75rem;
+      object-position: right top;
     }
 
     /* Projects card – placeholder thumbnails */
