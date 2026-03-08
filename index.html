@@ -94,34 +94,17 @@
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: auto auto;
       gap: 1.5rem;
       align-items: stretch;
     }
 
-    .card-about {
-      grid-column: 1;
-      grid-row: 1;
-      min-height: 180px;
-      max-height: 220px;
-      padding-right: calc(120px + 1rem);
-    }
-
-    .card-work {
-      grid-column: 1;
-      grid-row: 2;
-      max-height: 220px;
-      padding-right: calc(120px + 1rem);
-    }
-
     .card-projects {
-      grid-column: 2;
-      grid-row: 1 / span 2;
+      grid-row: span 2;
     }
 
     .card-contact {
-      grid-column: 3;
-      grid-row: 1 / span 2;
+      grid-row: span 2;
     }
 
     @media (max-width: 768px) {
@@ -130,12 +113,9 @@
         grid-template-rows: auto;
       }
 
-      .card-about,
-      .card-work,
       .card-projects,
       .card-contact {
-        grid-column: auto;
-        grid-row: auto;
+        grid-row: span 1;
       }
     }
 
@@ -183,24 +163,18 @@
 
     .card-illustration {
       position: absolute;
-      right: 1rem;
+      right: 0;
       bottom: 1rem;
-      max-width: 220px;
-      max-height: 190px;
+      max-width: 120px;
+      max-height: 100px;
       width: auto;
       height: auto;
       object-fit: contain;
     }
 
-    .card-about .card-illustration {
-      bottom: 0;
-      right: 1rem;
-    }
-
     .card-work .card-illustration {
       top: 0;
       bottom: auto;
-      right: 1rem;
     }
 
     /* Projects card – placeholder thumbnails */
@@ -261,16 +235,13 @@
 
     .chips {
       display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
+      flex-wrap: wrap;
       gap: 0.5rem;
-      justify-content: flex-end;
+      justify-content: center;
       margin-bottom: 1.5rem;
-      -webkit-overflow-scrolling: touch;
     }
 
     .chip {
-      flex-shrink: 0;
       padding: 0.5rem 1rem;
       border-radius: 999px;
       border: 1px solid var(--border);
@@ -363,7 +334,7 @@
         </svg>
         <h2>About</h2>
         <p>A bit about myself.</p>
-        <img src="Top Frame.png" alt="" class="card-illustration" />
+        <img src="TomasPortfolio/Top Frame.png" alt="" class="card-illustration" />
       </a>
 
       <a href="#work-experience" class="card card-work">
@@ -373,7 +344,7 @@
         </svg>
         <h2>Work Experience</h2>
         <p>My career as a Service Designer.</p>
-        <img src="Bottom Frame.png" alt="" class="card-illustration" />
+        <img src="TomasPortfolio/Bottom Frame.png" alt="" class="card-illustration" />
       </a>
 
       <a href="#projects" class="card card-projects">
