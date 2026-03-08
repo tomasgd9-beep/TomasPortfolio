@@ -185,7 +185,6 @@
     .card-illustration {
       position: absolute;
       right: -1.75rem;
-      bottom: -1.75rem;
       max-width: 220px;
       max-height: 190px;
       width: auto;
@@ -193,11 +192,14 @@
       object-fit: contain;
     }
 
+    /* Top Frame: bottom-right of About box */
     .card-about .card-illustration {
+      top: auto;
       bottom: -1.75rem;
       right: -1.75rem;
     }
 
+    /* Bottom Frame: top-right of Work Experience box */
     .card-work .card-illustration {
       top: -1.75rem;
       bottom: auto;
