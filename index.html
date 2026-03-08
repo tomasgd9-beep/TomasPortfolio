@@ -99,12 +99,24 @@
       align-items: stretch;
     }
 
+    .card-about {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .card-work {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
     .card-projects {
-      grid-row: span 2;
+      grid-column: 2;
+      grid-row: 1 / span 2;
     }
 
     .card-contact {
-      grid-row: span 2;
+      grid-column: 3;
+      grid-row: 1 / span 2;
     }
 
     @media (max-width: 768px) {
@@ -113,9 +125,12 @@
         grid-template-rows: auto;
       }
 
+      .card-about,
+      .card-work,
       .card-projects,
       .card-contact {
-        grid-row: span 1;
+        grid-column: auto;
+        grid-row: auto;
       }
     }
 
@@ -230,13 +245,15 @@
 
     .chips {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow: hidden;
       gap: 0.5rem;
       justify-content: center;
       margin-bottom: 1.5rem;
     }
 
     .chip {
+      flex-shrink: 0;
       padding: 0.5rem 1rem;
       border-radius: 999px;
       border: 1px solid var(--border);
