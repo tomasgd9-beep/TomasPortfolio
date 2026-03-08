@@ -191,12 +191,12 @@
     }
 
     .card-about .card-illustration {
-      bottom: 1rem;
+      bottom: 0;
       right: 1rem;
     }
 
     .card-work .card-illustration {
-      top: 1rem;
+      top: 0;
       bottom: auto;
       right: 1rem;
     }
@@ -260,10 +260,11 @@
     .chips {
       display: flex;
       flex-wrap: nowrap;
-      overflow: hidden;
+      overflow-x: auto;
       gap: 0.5rem;
-      justify-content: center;
+      justify-content: flex-end;
       margin-bottom: 1.5rem;
+      -webkit-overflow-scrolling: touch;
     }
 
     .chip {
