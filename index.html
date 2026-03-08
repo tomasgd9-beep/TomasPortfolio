@@ -102,17 +102,21 @@
     .card-about {
       grid-column: 1;
       grid-row: 1;
-      height: 95px;
+      min-height: 95px;
+      height: auto;
       min-width: 252px;
       padding: 11px 23px;
+      padding-right: calc(126px + 23px + 0.5rem);
     }
 
     .card-work {
       grid-column: 1;
       grid-row: 2;
-      height: 95px;
+      min-height: 95px;
+      height: auto;
       min-width: 252px;
       padding: 11px 23px;
+      padding-right: calc(126px + 23px + 0.5rem);
     }
 
     .card-projects {
@@ -209,22 +213,29 @@
     .card-illustration {
       position: absolute;
       object-fit: contain;
+      flex-shrink: 0;
     }
 
     /* TopBox: 126×85px, bottom-right, flush to box edges */
     .card-about .card-illustration {
       width: 126px;
       height: 85px;
+      min-width: 126px;
+      min-height: 85px;
       top: auto;
       right: -23px;
       bottom: -11px;
       object-position: right bottom;
     }
 
-    /* BottomBox: 126×46px, top-right, flush to box edges */
+    /* BottomBox: 126×46px, top-right, flush to box edges, full size */
     .card-work .card-illustration {
       width: 126px;
       height: 46px;
+      min-width: 126px;
+      min-height: 46px;
+      max-width: none;
+      max-height: none;
       top: -11px;
       right: -23px;
       bottom: auto;
