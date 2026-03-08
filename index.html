@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tomas Garcia Dumler – Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --text: #1a1a1a;
+      --muted: #5a5a5a;
+      --bg: #fafafa;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+      --radius: 16px;
+      --border: rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .header-decoration {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      opacity: 0.4;
+    }
+
+    .header-decoration svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .name {
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .title-wrap {
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title {
+      font-family: var(--sans);
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--muted);
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .title.fade-out {
+      opacity: 0;
+    }
+
+    /* Main cards */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .card-projects {
+      grid-row: span 2;
+    }
+
+    .card-contact {
+      grid-row: span 2;
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .card-projects,
+      .card-contact {
+        grid-row: span 1;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* About & Work Experience cards – illustration */
+    .card-about,
+    .card-work {
+      position: relative;
+    }
+
+    .card-illustration {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      max-width: 120px;
+      max-height: 100px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Projects card – placeholder thumbnails */
+    .card-projects .thumbnails {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .card-projects .thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #e0e0e0, #c8c8c8);
+      flex-shrink: 0;
+    }
+
+    .card-projects .thumb:nth-child(1) { background: linear-gradient(135deg, #c4b5fd, #a78bfa); }
+    .card-projects .thumb:nth-child(2) { background: linear-gradient(135deg, #86efac, #4ade80); }
+    .card-projects .thumb:nth-child(3) { background: linear-gradient(135deg, #fda4af, #f43f5e); }
+    .card-projects .thumb:nth-child(4) { background: linear-gradient(135deg, #fcd34d, #f59e0b); }
+
+    /* Contact card – placeholder speech bubbles */
+    .card-contact .bubbles {
+      display: flex;
+      gap: 4px;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .card-contact .bubble {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .card-contact .bubble:nth-child(1) { background: #93c5fd; }
+    .card-contact .bubble:nth-child(2) { background: #86efac; }
+    .card-contact .bubble:nth-child(3) { background: #93c5fd; }
+    .card-contact .bubble:nth-child(4) { background: #86efac; }
+    .card-contact .bubble:nth-child(5) { background: #93c5fd; }
+
+    /* Ask TomasGPT */
+    section.ask-tomasgpt {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    section.ask-tomasgpt h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .chip {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .chip:hover {
+      background: #f0f0f0;
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .input-wrap {
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.5rem 1rem 0.5rem 1.25rem;
+      box-shadow: var(--shadow);
+      max-width: 100%;
+    }
+
+    .input-wrap:focus-within {
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .input-wrap .icon {
+      width: 20px;
+      height: 20px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .input-wrap .icon-mic {
+      margin-right: 0.75rem;
+    }
+
+    .input-wrap .icon-send {
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    .input-wrap input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--text);
+      min-width: 0;
+    }
+
+    .input-wrap input::placeholder {
+      color: var(--muted);
+    }
+
+    .input-wrap input:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-decoration" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="12" r="4" fill="currentColor" />
+        <circle cx="16" cy="22" r="4" fill="currentColor" />
+        <circle cx="32" cy="22" r="4" fill="currentColor" />
+        <circle cx="24" cy="32" r="4" fill="currentColor" />
+      </svg>
+    </div>
+    <h1 class="name">Tomas Garcia Dumler</h1>
+    <div class="title-wrap">
+      <span class="title" id="rotating-title" aria-live="polite">Service Designer</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="cards">
+      <a href="#about" class="card card-about" id="about">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M20 21a8 8 0 1 0-16 0" />
+        </svg>
+        <h2>About</h2>
+        <p>A bit about myself.</p>
+        <img src="Top Frame.png" alt="" class="card-illustration" />
+      </a>
+
+      <a href="#work-experience" class="card card-work">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+        <h2>Work Experience</h2>
+        <p>My career as a Service Designer.</p>
+        <img src="Bottom Frame.png" alt="" class="card-illustration" />
+      </a>
+
+      <a href="#projects" class="card card-projects">
+        <div class="thumbnails" aria-hidden="true">
+          <span class="thumb"></span>
+          <span class="thumb"></span>
+          <span class="thumb"></span>
+          <span class="thumb"></span>
+        </div>
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+        </svg>
+        <h2>Projects</h2>
+        <p>Personal projects I've been working on.</p>
+      </a>
+
+      <a href="#contact" class="card card-contact">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13" />
+          <polygon points="22 2 15 22 11 13 2 9 22 2" />
+        </svg>
+        <h2>Contact</h2>
+        <p>Email, LinkedIn, carrier pigeon…</p>
+        <div class="bubbles" aria-hidden="true">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <section class="ask-tomasgpt" aria-labelledby="tomasgpt-heading">
+    <h2 id="tomasgpt-heading">Ask TomasGPT</h2>
+    <div class="chips">
+      <button type="button" class="chip">Who is Tomas?</button>
+      <button type="button" class="chip">How much experience does he have?</button>
+      <button type="button" class="chip">Which languages does he speak?</button>
+      <button type="button" class="chip">What are his hobbies?</button>
+      <button type="button" class="chip">How can I contact him?</button>
+    </div>
+    <div class="input-wrap">
+      <svg class="icon icon-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+        <line x1="12" y1="19" x2="12" y2="23" />
+        <line x1="8" y1="23" x2="16" y2="23" />
+      </svg>
+      <input type="text" placeholder="What would you like to know?" aria-label="Ask TomasGPT" />
+      <svg class="icon icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <line x1="22" y1="2" x2="11" y2="13" />
+        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+      </svg>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var titles = ['Service Designer', 'Researcher', 'Triathlete', 'Cat Dad'];
+      var index = 0;
+      var el = document.getElementById('rotating-title');
+      if (!el) return;
+
+      function cycle() {
+        el.classList.add('fade-out');
+        setTimeout(function () {
+          index = (index + 1) % titles.length;
+          el.textContent = titles[index];
+          el.classList.remove('fade-out');
+        }, 500);
+      }
+
+      setInterval(cycle, 2800);
+    })();
+  </script>
+</body>
+</html>
