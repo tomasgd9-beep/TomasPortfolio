@@ -102,16 +102,17 @@
     .card-about {
       grid-column: 1;
       grid-row: 1;
-      min-height: 180px;
-      max-height: 220px;
-      padding-right: calc(120px + 1rem);
+      height: 95px;
+      min-width: 252px;
+      padding: 11px 23px;
     }
 
     .card-work {
       grid-column: 1;
       grid-row: 2;
-      max-height: 220px;
-      padding-right: calc(120px + 1rem);
+      height: 95px;
+      min-width: 252px;
+      padding: 11px 23px;
     }
 
     .card-projects {
@@ -176,7 +177,29 @@
       font-weight: 400;
     }
 
-    /* About & Work Experience cards – illustration (flush to card edges, cropped) */
+    /* About & Work Experience – box anatomy (21px rows, 11px gaps) */
+    .card-about .card-icon,
+    .card-work .card-icon {
+      width: 23px;
+      height: 21px;
+      margin-bottom: 11px;
+    }
+
+    .card-about h2,
+    .card-work h2 {
+      font-size: 14px;
+      line-height: 1.2;
+      margin-bottom: 11px;
+    }
+
+    .card-about p,
+    .card-work p {
+      font-size: 13px;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    /* About & Work Experience cards – illustration (flush to card edges) */
     .card-about,
     .card-work {
       position: relative;
@@ -185,25 +208,25 @@
 
     .card-illustration {
       position: absolute;
-      width: 260px;
-      height: 220px;
-      max-width: none;
-      max-height: none;
-      object-fit: cover;
+      object-fit: contain;
     }
 
-    /* Top Frame: bottom-right of About box, cropped by right and bottom edges */
+    /* TopBox: 126×85px, bottom-right, flush to box edges */
     .card-about .card-illustration {
+      width: 126px;
+      height: 85px;
       top: auto;
-      right: calc(-1 * var(--card-padding));
-      bottom: calc(-1 * var(--card-padding));
+      right: -23px;
+      bottom: -11px;
       object-position: right bottom;
     }
 
-    /* Bottom Frame: top-right of Work Experience box, cropped by right and top edges */
+    /* BottomBox: 126×46px, top-right, flush to box edges */
     .card-work .card-illustration {
-      top: calc(-1 * var(--card-padding));
-      right: calc(-1 * var(--card-padding));
+      width: 126px;
+      height: 46px;
+      top: -11px;
+      right: -23px;
       bottom: auto;
       object-position: right top;
     }
@@ -368,7 +391,7 @@
         </svg>
         <h2>About</h2>
         <p>A bit about myself.</p>
-        <img src="Top%20Frame.png" alt="" class="card-illustration" />
+        <img src="TopBox.png" alt="" class="card-illustration" />
       </a>
 
       <a href="#work-experience" class="card card-work">
@@ -378,7 +401,7 @@
         </svg>
         <h2>Work Experience</h2>
         <p>My career as a Service Designer.</p>
-        <img src="Bottom%20Frame.png" alt="" class="card-illustration" />
+        <img src="BottomBox.png" alt="" class="card-illustration" />
       </a>
 
       <a href="#projects" class="card card-projects">
