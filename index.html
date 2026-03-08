@@ -94,7 +94,7 @@
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto auto;
+      grid-template-rows: 1fr 1fr;
       gap: 1.5rem;
       align-items: stretch;
     }
@@ -102,11 +102,14 @@
     .card-about {
       grid-column: 1;
       grid-row: 1;
+      min-height: 160px;
+      padding-right: calc(120px + 1rem + 1rem);
     }
 
     .card-work {
       grid-column: 1;
       grid-row: 2;
+      padding-right: calc(120px + 1rem + 1rem);
     }
 
     .card-projects {
@@ -185,6 +188,17 @@
       width: auto;
       height: auto;
       object-fit: contain;
+    }
+
+    .card-about .card-illustration {
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    .card-work .card-illustration {
+      top: 1rem;
+      bottom: auto;
+      right: 1rem;
     }
 
     /* Projects card – placeholder thumbnails */
